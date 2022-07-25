@@ -1,0 +1,84 @@
+<configuration debug="false" scan="true" scanPeriod="30 seconds">
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder
+            by default -->
+        <encoder>
+            <pattern>%date{} [%thread] %-5level %logger{35}.%M\(%line\)- %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="WARN_THRESHOLD_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>logs/%d{yyyy-MM-dd}/warnthreshold.%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+            <!-- keep 30 days' worth of history -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+        </filter>
+        <encoder>
+            <pattern>%date{} [%thread] %-5level %logger{35}.%M\(%line\)- %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>logs/%d{yyyy-MM-dd}/server.%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+            <!-- keep 30 days' worth of history -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date{} [%thread] %-5level %logger{35}.%M\(%line\)- %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--    <logger name="java.sql" level="DEBUG">-->
+    <!--        <appender-ref ref="WARN_THRESHOLD_APPENDER" />-->
+    <!--        <appender-ref ref="FILE_APPENDER" />-->
+    <!--        <appender-ref ref="STDOUT"/>-->
+    <!--    </logger>-->
+    <!--	<logger name="com.ssh.ysq.center" level="DEBUG"  additivity="false">-->
+    <!--		<appender-ref ref="FILE_APPENDER" />-->
+    <!--		<appender-ref ref="WARN_THRESHOLD_APPENDER" />-->
+    <!--		<appender-ref ref="STDOUT" />-->
+    <!--	</logger>-->
+    <!--	<logger name="ch.qos.logback" level="ERROR" additivity="false">-->
+    <!--		<appender-ref ref="FILE_APPENDER" />-->
+    <!--		<appender-ref ref="STDOUT" />-->
+    <!--	</logger>-->
+    <!--	<logger name="com.alibaba.druid.pool" level="INFO" additivity="false">-->
+    <!--		<appender-ref ref="FILE_APPENDER" />-->
+    <!--		<appender-ref ref="STDOUT" />-->
+    <!--	</logger>-->
+    <!--	<logger name="org.apache.ibatis" level="INFO" additivity="false">-->
+    <!--		<appender-ref ref="FILE_APPENDER" />-->
+    <!--		<appender-ref ref="WARN_THRESHOLD_APPENDER" />-->
+    <!--		<appender-ref ref="STDOUT" />-->
+    <!--	</logger>-->
+    <!--	<logger name="org.mybatis.spring" level="INFO" additivity="false">-->
+    <!--		<appender-ref ref="FILE_APPENDER" />-->
+    <!--		<appender-ref ref="WARN_THRESHOLD_APPENDER" />-->
+    <!--		<appender-ref ref="STDOUT" />-->
+    <!--	</logger>-->
+
+    <!-- 日志级别排序为： TRACE 、DEBUG、 INFO、 WARN 、 ERROR -->
+    <!--
+      配置 ERROR 打印 error
+      配置 WARN  打印 warn、error
+      配置 INFO  打印 info、warn、 error
+      配置 debug 打印 info、warn、 error、debug
+      配置 trace 打印 info、warn、 error、debug、trace
+    -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="WARN_THRESHOLD_APPENDER"/>
+        <appender-ref ref="FILE_APPENDER"/>
+    </root>
+</configuration>
