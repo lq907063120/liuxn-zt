@@ -10,7 +10,7 @@
     <artifactId>spring-cloud-eureka</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-cloud-eureka</name>
-    <description>spring-cloud-eureka</description>
+    <description>微服务注册中心</description>
 
 
     <dependencies>

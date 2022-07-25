@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: spring-cloud-docs
+server:
+  #含义：读取系统可以端口，否则使用定义
+  port: 8080
