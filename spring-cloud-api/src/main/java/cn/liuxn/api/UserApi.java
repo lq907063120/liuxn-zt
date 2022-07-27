@@ -1,7 +1,5 @@
 package cn.liuxn.api;
 
-import lombok.Data;
-
 /**
  * 用户
  *
@@ -11,20 +9,5 @@ import lombok.Data;
 public interface UserApi {
 
 
-    @r
-    User getUser();
-
-
-    @Data
-    class User {
-        private Long id;
-
-        private String name;
-
-        private String username;
-
-        private String password;
-
-    }
 
 }

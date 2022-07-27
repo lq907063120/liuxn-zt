@@ -26,7 +26,6 @@
         <slf4j-api>1.7.25</slf4j-api>
         <logback>1.2.6</logback>
         <spring-boot.version>2.3.7.RELEASE</spring-boot.version>
-
     </properties>
 
     <dependencyManagement>
